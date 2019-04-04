@@ -8,4 +8,4 @@ Xcode 10.2</br>
 Swift 5</br>
 Simulator iPhone Xs
 
-<img src="README_resource/screenshot.gif" width="320" height="569">
+<img src="README_resource/screenshot.gif" width="320" height="640">
