@@ -49,6 +49,7 @@ class ViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         iPhoneView.backgroundColor = UIColor(red: CGFloat(color1RSlider.value / 255), green: CGFloat(color1GSlider.value / 255), blue: CGFloat(color1BSlider.value / 255), alpha: CGFloat(color1AlphaSlider.value)) // initialization
+        gradientLayer.frame = iPhoneViewGradientBackground.bounds
     }
     
     @IBAction func changeColor(_ sender: Any)
@@ -90,10 +91,9 @@ class ViewController: UIViewController
             gradientSwitchState = false
         }
     }
-    func switchOnAction()
+    private func switchOnAction() // switch to UIView background with dual color gradient adjustment
     {
         iPhoneView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
-        gradientLayer.frame = iPhoneViewGradientBackground.bounds
         gradientLayer.colors = [color1.cgColor, color2.cgColor]
         coordinate.setDegree(Degree: gradientDegree)
         gradientLayer.startPoint = CGPoint(x: coordinate.getStartPointX(), y: coordinate.getStartPointY())
@@ -101,13 +101,12 @@ class ViewController: UIViewController
         iPhoneViewGradientBackground.layer.addSublayer(gradientLayer)
         iPhoneViewGradientBackground.bringSubviewToFront(iPhoneView)
     }
-    func switchOffAction()
+    private func switchOffAction() // switch to UIImageView background with single color adjustment
     {
         gradientLayer.removeFromSuperlayer()
-        gradientLayer.frame = iPhoneViewGradientBackground.bounds
         iPhoneView.backgroundColor = color1Preview.backgroundColor
     }
-    class CoordinateCalculator
+    private class CoordinateCalculator // calculate coordinate of gradientLayer points
     {
         private var degree: Float
         private var startPointX: Double
@@ -127,39 +126,35 @@ class ViewController: UIViewController
         func setDegree(Degree: Float)
         {
             degree = Degree
-            if (Degree >= 0 && Degree <= 45) || (Degree >= 315 && Degree <= 360)
+            // one side one case
+            if (Degree >= 0 && Degree <= 45) || (Degree >= 315 && Degree <= 360) // 0<=degree<=45 or 315<=degree<=360
             {
-                startPointY = 0
-                endPointY = 1
                 startPointX = Double(0.5 + 0.5 * tan(Double(degree) * Double.pi / 180.0))
+                startPointY = 0
                 endPointX = 1 - startPointX
+                endPointY = 1
             }
-            else if Degree >= 45 && Degree <= 135
+            else if Degree >= 45 && Degree <= 135 // 45<=degree<=135
             {
                 startPointX = 1
-                endPointX = 0
                 startPointY = Double(0.5 - 0.5 * tan(Double(90.0 - degree) * Double.pi / 180.0))
+                endPointX = 0
                 endPointY = 1 - startPointY
             }
-            else if Degree >= 135 && Degree <= 225
+            else if Degree >= 135 && Degree <= 225 // 135<=degree<=225
             {
-                startPointY = 1
-                endPointY = 0
                 startPointX = Double(0.5 + 0.5 * tan(Double(180.0 - degree) * Double.pi / 180.0))
+                startPointY = 1
                 endPointX = 1 - startPointX
+                endPointY = 0
             }
-            else if Degree >= 225 && Degree <= 315
+            else if Degree >= 225 && Degree <= 315 // 225<=degree<=315
             {
                 startPointX = 0
-                endPointX = 1
                 startPointY = Double(0.5 + 0.5 * tan(Double(270.0 - degree) * Double.pi / 180.0))
+                endPointX = 1
                 endPointY = 1 - startPointY
             }
-            print("Degree: " + String(degree))
-            print("start X: " + String(startPointX))
-            print("start Y: " + String(startPointY))
-            print("end X: " + String(endPointX))
-            print("end Y: " + String(endPointY))
         }
         
         func getStartPointX() -> Double

@@ -12,6 +12,8 @@
 		52DF59E22254D980003D1B8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DF59E02254D980003D1B8D /* Main.storyboard */; };
 		52DF59E42254D981003D1B8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DF59E32254D981003D1B8D /* Assets.xcassets */; };
 		52DF59E72254D981003D1B8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52DF59E52254D981003D1B8D /* LaunchScreen.storyboard */; };
+		52DF59F022559067003D1B8D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 52DF59EF22559067003D1B8D /* README.md */; };
+		52DF59F322559570003D1B8D /* screenshot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 52DF59F222559570003D1B8D /* screenshot.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		52DF59E32254D981003D1B8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52DF59E62254D981003D1B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52DF59E82254D981003D1B8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52DF59EF22559067003D1B8D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		52DF59F222559570003D1B8D /* screenshot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = screenshot.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,8 @@
 		52DF59D02254D980003D1B8D = {
 			isa = PBXGroup;
 			children = (
+				52DF59F122559195003D1B8D /* README_resource */,
+				52DF59EF22559067003D1B8D /* README.md */,
 				52DF59DB2254D980003D1B8D /* Customize iPhone */,
 				52DF59DA2254D980003D1B8D /* Products */,
 			);
@@ -62,6 +68,14 @@
 				52DF59E82254D981003D1B8D /* Info.plist */,
 			);
 			path = "Customize iPhone";
+			sourceTree = "<group>";
+		};
+		52DF59F122559195003D1B8D /* README_resource */ = {
+			isa = PBXGroup;
+			children = (
+				52DF59F222559570003D1B8D /* screenshot.gif */,
+			);
+			path = README_resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +138,9 @@
 			files = (
 				52DF59E72254D981003D1B8D /* LaunchScreen.storyboard in Resources */,
 				52DF59E42254D981003D1B8D /* Assets.xcassets in Resources */,
+				52DF59F022559067003D1B8D /* README.md in Resources */,
 				52DF59E22254D980003D1B8D /* Main.storyboard in Resources */,
+				52DF59F322559570003D1B8D /* screenshot.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
